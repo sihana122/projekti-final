@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> ca5c781464350aa4b9e54c949b3449b043a94bc5
+=======
 >>>>>>> ca5c781464350aa4b9e54c949b3449b043a94bc5
 let navbar = document.querySelector('navbar');
 
@@ -28,8 +31,11 @@ window.onscroll = () =>{
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> ca5c781464350aa4b9e54c949b3449b043a94bc5
 }
 =======
 function validateLoginForm(event) {
@@ -97,4 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 >>>>>>> c967688e02232dd488e148f1564834489d3cff4b
+<<<<<<< HEAD
+>>>>>>> ca5c781464350aa4b9e54c949b3449b043a94bc5
+=======
 >>>>>>> ca5c781464350aa4b9e54c949b3449b043a94bc5
