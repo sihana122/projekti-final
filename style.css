@@ -50,7 +50,7 @@ padding:2rem 7%;
 
 .heading{
 text-align: center;
-color: #b66969;
+color: #fff;
 text-transform: uppercase;
 padding-bottom: 3.5rem;
 font-size: 4rem;
@@ -104,7 +104,7 @@ padding-bottom: .5rem;
 }
 
 .header .icons div{
-color: #fff;
+color: #000000;
 cursor: pointer;
 font-size: 2.5rem;
 margin-left: 2rem;
@@ -121,7 +121,7 @@ display: none;
 .header .search-form{
 position: absolute;
 top:115%; right:7%;
-background: #fff;
+background: #000000;
 width: 50rem;
 height: 5rem;
 display: flex;
@@ -199,92 +199,6 @@ color: var(--main-color);
 width: 100%;
 text-align: center;
 }
-.login {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('../images/login-bg.jpg') no-repeat center center;
-    background-size: cover;
-    text-align: center;
-    padding: 2rem 5%;
-}
-
-.login .content {
-    max-width: 50rem;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 3rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
-}
-
-.login .content h3 {
-    font-size: 4.5rem;
-    text-transform: uppercase;
-    color: #fff;
-    font-family: Helvetica;
-    margin-bottom: 1rem;
-}
-
-.login .content p {
-    font-size: 1.6rem;
-    font-weight: normal;
-    line-height: 1.8;
-    padding: 1rem 0;
-    color: #ccc;
-}
-
-.login-form .inputBox {
-    margin-bottom: 2rem;
-}
-
-.login-form .inputBox input {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: #333;
-    background: #fff;
-    border: 0.1rem solid #ccc;
-    border-radius: 0.5rem;
-    text-transform: none;
-}
-
-.login-form .inputBox input::placeholder {
-    color: #888;
-}
-
-.login-form .btn {
-    margin-top: 1rem;
-    display: inline-block;
-    width: 100%;
-}
-
-.register-link {
-    margin-top: 1.5rem;
-    font-size: 1.4rem;
-    color: #fff;
-}
-
-.register-link a {
-    color: var(--main-color, #f4b400);
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
-}
-
-.input-error {
-    border: 2px solid #ff4d4d !important; 
-}
-
-.error-message {
-    color: #ff4d4d;
-    font-size: 1.4rem;
-    margin-top: 0.5rem;
-    text-align: left;
-}
 
 .home{
 height:110vh;
@@ -303,7 +217,7 @@ max-width:60rem;
 .home .content h3{
 font-size: 6rem;
 text-transform:uppercase;
-color: #000000;
+color: #020202;
 font-family:Helvetica;
 }
 
@@ -312,7 +226,7 @@ font-size: 1.7rem;
 font-weight: bold;
 line-height:1.8;
 padding:1rem 0;
-color: #000000;
+color: #0d0d0d;
 }
 
 .about .row{
