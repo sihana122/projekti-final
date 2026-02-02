@@ -75,7 +75,6 @@ class Validator
         return !empty($this->errors) ? reset($this->errors) : null;
     }
 }
-<?php
 
 class Slider
 {
@@ -143,5 +142,45 @@ class Slider
     {
         $stmt = $this->db->prepare("DELETE FROM slider_items WHERE id = ?");
         return $stmt->execute([$id]);
+    }
+}
+
+class Content
+{
+    private PDO $db;
+
+    public function __construct()
+    {
+        $this->db = Database::getInstance();
+    }
+
+    public function get(string $pageKey, string $sectionKey): ?string
+    {
+        $stmt = $this->db->prepare("SELECT content FROM site_content WHERE page_key = ? AND section_key = ?");
+        $stmt->execute([$pageKey, $sectionKey]);
+        $row = $stmt->fetch();
+        return $row ? $row['content'] : null;
+    }
+
+    public function getAllByPage(string $pageKey): array
+    {
+        $stmt = $this->db->prepare("SELECT section_key, content FROM site_content WHERE page_key = ?");
+        $stmt->execute([$pageKey]);
+        $rows = $stmt->fetchAll();
+        $result = [];
+        foreach ($rows as $row) {
+            $result[$row['section_key']] = $row['content'];
+        }
+        return $result;
+    }
+
+    public function set(string $pageKey, string $sectionKey, string $content, ?int $userId = null): bool
+    {
+        $stmt = $this->db->prepare("
+            INSERT INTO site_content (page_key, section_key, content, updated_by) 
+            VALUES (?, ?, ?, ?) 
+            ON DUPLICATE KEY UPDATE content = VALUES(content), updated_by = VALUES(updated_by)
+        ");
+        return $stmt->execute([$pageKey, $sectionKey, $content, $userId]);
     }
 }
