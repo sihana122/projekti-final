@@ -75,3 +75,73 @@ class Validator
         return !empty($this->errors) ? reset($this->errors) : null;
     }
 }
+<?php
+
+class Slider
+{
+    private PDO $db;
+
+    public function __construct()
+    {
+        $this->db = Database::getInstance();
+    }
+
+    public function getActive(): array
+    {
+        return $this->db->query("
+            SELECT s.*, u.full_name as created_by_name 
+            FROM slider_items s 
+            LEFT JOIN users u ON s.created_by = u.id 
+            WHERE s.active = 1 ORDER BY s.sort_order ASC
+        ")->fetchAll();
+    }
+
+    public function getAll(): array
+    {
+        return $this->db->query("
+            SELECT s.*, 
+                uc.full_name as created_by_name, 
+                uu.full_name as updated_by_name 
+            FROM slider_items s 
+            LEFT JOIN users uc ON s.created_by = uc.id 
+            LEFT JOIN users uu ON s.updated_by = uu.id 
+            ORDER BY s.sort_order ASC
+        ")->fetchAll();
+    }
+
+    public function create(array $data, ?int $userId = null): int
+    {
+        $stmt = $this->db->prepare("INSERT INTO slider_items (title, description, image_path, link, sort_order, created_by) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([
+            $data['title'],
+            $data['description'] ?? '',
+            $data['image_path'] ?? '',
+            $data['link'] ?? '',
+            $data['sort_order'] ?? 0,
+            $userId
+        ]);
+        return (int) $this->db->lastInsertId();
+    }
+
+    public function update(int $id, array $data, ?int $userId = null): bool
+    {
+        $stmt = $this->db->prepare("
+            UPDATE slider_items SET title=?, description=?, image_path=?, link=?, sort_order=?, updated_by=? WHERE id=?
+        ");
+        return $stmt->execute([
+            $data['title'],
+            $data['description'] ?? '',
+            $data['image_path'] ?? '',
+            $data['link'] ?? '',
+            $data['sort_order'] ?? 0,
+            $userId,
+            $id
+        ]);
+    }
+
+    public function delete(int $id): bool
+    {
+        $stmt = $this->db->prepare("DELETE FROM slider_items WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+}
