@@ -1,34 +1,38 @@
 
-let navbar = document.querySelector('navbar');
+let navbar = document.querySelector('.navbar');
+let searchForm = document.querySelector('.search-form');
+let cartItem = document.querySelector('.cart-items-container');
 
-document.querySelector('@menu-btn').onclicl = () =>{
+
+document.querySelector('#menu-btn').onclick = () =>{
     navbar.classList.toggle('active');
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
 }
-let searchForm = document.querySelection('.search-form');
 
-document.quertSelector('#search-btn').onclick = () =>{
+document.querySelector('#search-btn').onclick = () =>{
     searchForm.classList.toggle('active');
     navbar.classList.remove('active');
     cartItem.classList.remove('active');
 }
-let cartItem = document.querySelector('.cart-items-container');
 
-document.querySelector('#cart-btn').onclicl = () =>{
+document.querySelector('#cart-btn').onclick = () =>{
     cartItem.classList.toggle('active');
     navbar.classList.remove('active');
     searchForm.classList.remove('active');
 }
+
 window.onscroll = () =>{
     navbar.classList.remove('active');
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
-
+ HEAD
 
 }
 
 function validateLoginForm(event) {
+    event.preventDefault();
+    
     const emailInput = document.querySelector('.login-form input[type="email"]');
     const passwordInput = document.querySelector('.login-form input[type="password"]');
 
@@ -56,11 +60,14 @@ function validateLoginForm(event) {
     }
 
     if (hasError) {
-        event.preventDefault(); 
         return false;
     }
 
-    alert("Validimi në anën e klientit u krye me sukses. Tani dërgohet te serveri.");
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('isLoggedIn', 'true');
+    
+    alert("U kyçët me sukses!");
+    window.location.href = '#home';
 }
 
 function displayError(inputElement, message) {
@@ -91,4 +98,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', validateLoginForm);
     }
-});
+}) 

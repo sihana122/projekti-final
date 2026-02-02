@@ -199,14 +199,96 @@ color: var(--main-color);
 width: 100%;
 text-align: center;
 }
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 5%;
+}
+
+.login .content {
+    max-width: 50rem;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+.login .content h3 {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: Helvetica;
+    margin-bottom: 1rem;
+}
+
+.login .content p {
+    font-size: 1.6rem;
+    font-weight: normal;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+}
+
+.login-form .inputBox {
+    margin-bottom: 2rem;
+}
+
+.login-form .inputBox input {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: #333;
+    background: #fff;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    text-transform: none;
+}
+
+.login-form .inputBox input::placeholder {
+    color: #888;
+}
+
+.login-form .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.register-link {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.register-link a {
+    color: var(--main-color, #f4b400);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.input-error {
+    border: 2px solid #ff4d4d !important; 
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    text-align: left;
+}
 
 .home{
 height:110vh;
 display:flex;
 align-items: center;
 justify-content: center;
-background: url('../images/home-img.jpg') no-repeat center center;
-background-size: cover;
 text-align: center;
 }
 .login {
@@ -462,10 +544,10 @@ background: none;
     margin: .3rem;
     border-radius: 50%;
 }
-.footer .sahre a:hover{
+.footer .share a:hover{
     background-color: var(--main-color);
 }
-.footer links{
+.footer .links{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -514,7 +596,7 @@ background: #fff;
 width: 30rem;
 height: calc(100vh - 9.5rem);
 }
-.header .navbar .active{
+.header .navbar.active{
 right:0;
 }
 .header .navbar a{
